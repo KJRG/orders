@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings/
+
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+src/main/resources/application.properties
