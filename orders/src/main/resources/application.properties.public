@@ -3,4 +3,8 @@ spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.sql-script-encoding=UTF-8
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming.strategy=org.hibernate.cfg.ImpprovedNamingStrategy
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
