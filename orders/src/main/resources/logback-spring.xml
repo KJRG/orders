@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    
+    <springProperty scope="context" name="logFileDirectory" source="log.directory" defaultValue="logs"/>
+    <springProperty scope="context" name="maxFileSize" source="log.maxFileSize" defaultValue="20MB"/>
+    <property name="logFilePattern" value="%d %-5level [%thread] %logger{0}: %msg%n"/>
+    <property name="logFileEncoding" value="UTF-8"/>
+    
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<file>${logFileDirectory}/orders.log</file>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		<fileNamePattern>${logFileDirectory}/orders_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+    		<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>${maxFileSize}</maxFileSize>
+    		</timeBasedFileNamingAndTriggeringPolicy>
+    	</rollingPolicy>
+    	<encoder>
+    		<charset>${logFileEncoding}</charset>
+    		<pattern>${logFilePattern}</pattern>
+    	</encoder>
+    </appender>
+    
+    <root level="INFO">
+    	<appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
