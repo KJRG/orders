@@ -31,11 +31,11 @@
 			<div class="container">
 				
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Orders</a>
+					<a class="navbar-brand" href="#" data-th-text="#{navbar.project}">Orders</a>
 				</div>
 				
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="#" data-th-text="#{navbar.home}">Home</a></li>
 				</ul>
 				
 			</div>
@@ -43,8 +43,8 @@
 	
 		<div class="container">
 			<div class="starter-template">
-				<h1>Orders</h1>
-				<p class="lead">Orders management system</p>
+				<h1 data-th-text="#{application.name}">Orders</h1>
+				<p class="lead" data-th-text="#{application.description}">Orders management system</p>
 			</div>
 		</div>
 	

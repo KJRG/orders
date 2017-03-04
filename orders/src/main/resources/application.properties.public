@@ -9,5 +9,10 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.hibernate.naming.strategy=org.hibernate.cfg.ImprovedNamingStrategy
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 
+spring.messages.basename=static/messages/messages
+spring.messages.encoding=UTF-8
+spring.messages.cache-seconds=-1
+spring.messages.fallback-to-system-locale=true
+
 log.directory=
 log.maxFileSize=
