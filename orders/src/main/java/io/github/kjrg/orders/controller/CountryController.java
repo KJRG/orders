@@ -3,9 +3,9 @@ package io.github.kjrg.orders.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import io.github.kjrg.orders.dto.CountryDto;
 import io.github.kjrg.orders.mapper.CountryMapper;
@@ -17,8 +17,8 @@ import io.github.kjrg.orders.service.CountryService;
  * 
  * @author Kris
  */
-@RestController
-@RequestMapping("/country")
+@Controller
+@RequestMapping("/countries")
 public class CountryController {
 
 	@Autowired
@@ -27,8 +27,10 @@ public class CountryController {
 	@Autowired
 	private CountryMapper countryMapper;
 	
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<CountryDto> getAllCountries() {
-		return countryMapper.map2Dto(countryService.findAllCountries());
+	@RequestMapping(value = "")
+	public ModelAndView list() {
+		List<CountryDto> countries = countryMapper.map2Dto(countryService.findAllCountries());
+		return new ModelAndView("countries", "countries", countries);
 	}
+	
 }

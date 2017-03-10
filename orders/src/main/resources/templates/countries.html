@@ -31,22 +31,35 @@
 			<div class="container">
 				
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#" data-th-href="@{/}" data-th-text="#{navbar.project}">Orders</a>
+					<a class="navbar-brand" data-th-href="@{/}" data-th-text="#{navbar.project}">Orders</a>
 				</div>
 				
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" data-th-href="@{/}" data-th-text="#{navbar.home}">Home</a></li>
-					<li><a data-th-href="@{/countries}" data-th-text="#{navbar.countries}">Countries</a></li>
+					<li><a data-th-href="@{/}" data-th-text="#{navbar.home}">Home</a></li>
+					<li class="active"><a href="#" data-th-href="@{/countries}" data-th-text="#{navbar.countries}">Countries</a></li>
 				</ul>
 				
 			</div>
 		</nav>
 	
 		<div class="container">
-			<div class="starter-template">
-				<h1 data-th-text="#{application.name}">Orders</h1>
-				<p class="lead" data-th-text="#{application.description}">Orders management system</p>
-			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th data-th-text="#{country.number}">No.</th>
+						<th data-th-text="#{country.name}">Name</th>
+						<th data-th-text="#{country.isoCode}">ISO code</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr data-th-each="country, stat : ${countries}">
+						<td data-th-text="${stat.count}"></td>
+						<td data-th-text="${country.name}"></td>
+						<td data-th-text="${country.isoCode}"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	
 	</body>
